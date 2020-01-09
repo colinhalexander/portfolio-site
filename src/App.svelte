@@ -1,30 +1,76 @@
 <script>
-	export let name;
+	import Header from './components/Header.svelte'
+	import NavBar from './components/NavBar.svelte'
+	import About from './components/About.svelte'
+	import Portfolio from './components/Portfolio.svelte'
+	import Contact from './components/Contact.svelte'
 </script>
 
+<Header/>
+<NavBar/>
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<About/>
+	<Portfolio/>
+	<Contact/>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+	/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+:global(html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video) {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+:global(article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section) {
+	display: block;
+}
+:global(body) {
+	line-height: 1;
+}
+:global(ol, ul) {
+	list-style: none;
+}
+:global(blockquote, q) {
+	quotes: none;
+}
+:global(blockquote:before, blockquote:after,
+q:before, q:after) {
+	content: '';
+	content: none;
+}
+:global(table) {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+:global(html) {
+	scroll-behavior: smooth;
+}
+:global(section) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	min-height: 100vh;
+}
 </style>
