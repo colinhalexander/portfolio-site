@@ -3,9 +3,9 @@
 </script>
 
 <section id="about" class="section">
-  <p>This is an About section</p>
+  <p>About</p>
 </section>
 
 <style>
-
+  
 </style>

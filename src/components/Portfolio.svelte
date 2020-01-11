@@ -3,7 +3,7 @@
 </script>
 
 <section id="portfolio">
-  <p>This is a Portfolio section</p>
+  <p>Portfolio</p>
 </section>
 
 <style>
