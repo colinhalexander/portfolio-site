@@ -16,7 +16,7 @@
 <Header/>
 <NavBar/>
 <main>
-	{#if scrollPosition > window.innerHeight / 2}
+	{#if scrollPosition > window.innerHeight * 0.9}
 		<button in:fade="{{ duration: 500 }}" on:click={() => window.scrollTo(0, 0)}>
 			<img src="https://img.icons8.com/ios-filled/50/000000/up.png" alt="scroll to top">
 		</button>
@@ -109,7 +109,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	position: fixed;
-	background-color: transparent;
+	background-color: rgba(0, 158, 211, 0.3);
 	top: 10px;
 	right: 10px;
 	width: 45px;

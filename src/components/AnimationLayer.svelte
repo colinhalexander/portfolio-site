@@ -1,5 +1,10 @@
 <script>
-  export let size, depth
+  import { tweened } from 'svelte/motion'
+  import { fade } from 'svelte/transition'
+
+  import Glow from './Glow.svelte'
+
+  export let size, depth, top, left
 </script>
 
 <div class="animation-layer"
@@ -8,8 +13,11 @@
           z-index: ${depth};`
         }
 >
+  {#if depth < -1}
+    <Glow {top} {left} {size} {depth} />
+  {/if}
   {#if size[0] > 10}
-    <svelte:self size={size.map(n => n/1.1)} depth={depth - 1}/>
+    <svelte:self {top} {left} size={ depth < -1 ? size.map(n => n/1.1) : size} depth={depth - 1}/>
   {/if}
 </div>
 
@@ -19,7 +27,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 94, 126, 0.5);
-    box-shadow: 0 0 25px 5px rgba(173, 216, 230, 0.2);
+    background: rgba(0, 148, 74, 0.05);
+    background: rgba(0, 133, 194, 0.05);
+    /* border: solid 1px rgba(0, 0, 0, 0.1); */
   }
 </style>
