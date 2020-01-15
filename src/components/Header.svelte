@@ -1,6 +1,5 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { spring } from 'svelte/motion'
   import AnimationLayer from './AnimationLayer.svelte'
   
   let initialSize = [window.innerHeight * 0.9, window.innerWidth]
@@ -17,7 +16,7 @@
   let show = false
   setTimeout(() => {
     show = true
-  }, 200);
+  }, 800);
 </script>
 
 <AnimationLayer {top} {left} size={initialSize} depth={-1}/>
@@ -34,25 +33,25 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     background: radial-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.068));
     width: 100%;
     height: 90vh;
     color: white;
-    padding-left: 5%;
     margin: 0;
-    text-shadow: 0 0 5px 5px black;
   }
 
   div > * {
-    width: 90%;
+    width: max-content;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
   h1 {
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 5px;
+    width: 70%;
   }
 
   h2 {

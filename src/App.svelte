@@ -11,13 +11,18 @@
 	document.body.onscroll = () => {
 		scrollPosition = window.scrollY
 	}
+
+	const scrollToTop = () => {
+		window.history.pushState({}, "", "/")
+		window.scrollTo(0, 0)
+	}
 </script>
 
 <Header/>
 <NavBar/>
 <main>
 	{#if scrollPosition > window.innerHeight * 0.9}
-		<button in:fade="{{ duration: 500 }}" on:click={() => window.scrollTo(0, 0)}>
+		<button in:fade="{{ duration: 500 }}" on:click={scrollToTop}>
 			<img src="https://img.icons8.com/ios-filled/50/000000/up.png" alt="scroll to top">
 		</button>
 	{/if}

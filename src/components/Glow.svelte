@@ -1,26 +1,32 @@
 <script>
   import { spring } from 'svelte/motion'
-  import { afterUpdate } from 'svelte'
 
-  export let size, depth, top, left
+  export let size, top, left
 
-  const glowSize = size.map(n => n * 0.02)
+  const glowSize = size[0] * 0.02
 
-  let modTop = spring(top * size[0] / (window.innerHeight * 0.9), { stiffness: 0.05, damping: 0.8 })
-  let modLeft = spring(left * size[1] / window.innerWidth, { stiffness: 0.05, damping: 0.8 })
+  let modTop = spring(top * size[0] / (window.innerHeight * 0.9), {
+    stiffness: 0.05,
+    damping: 0.8
+  })
+  
+  let modLeft = spring(left * size[1] / window.innerWidth, {
+    stiffness: 0.05,
+    damping: 0.8
+  })
 
   setInterval(() => {
     $modTop = top * size[0] / (window.innerHeight * 0.9) + marginOfError(size[0])
     $modLeft = left * size[1] / window.innerWidth + marginOfError(size[1])
-  }, 1000)
+  }, 1200)
 
   function marginOfError(scale) {
     return Math.random() * scale / 1.5 * (Math.random() > 0.5 ? -1 : 1)
   }
 </script>
 
-<div style={`height: ${glowSize[0]}px;
-             width: ${glowSize[0]}px;
+<div style={`height: ${glowSize}px;
+             width: ${glowSize}px;
              top: ${$modTop}px;
              left: ${$modLeft}px;
              border-radius: ${glowSize[0] / 2}px`
